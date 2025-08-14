@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import type { ButtonHTMLAttributes } from "react";
-
+import type { ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { TbLoader3 } from "react-icons/tb";
 import { cn } from "../../utils/classname";
@@ -80,7 +80,7 @@ interface ButtonProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "disabled">,
     VariantProps<typeof buttonVariants> {
   isLoading?: boolean;
-  icon?: JSX.Element;
+  icon?:  ReactNode;
   className?: string;
   glow?: boolean;
   glowWrapperClassName?: string;

@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div>
-       <p>Work begins Today</p>
+       <Link to= "/home">To go to homepage</Link>
       </div>
       
     </>

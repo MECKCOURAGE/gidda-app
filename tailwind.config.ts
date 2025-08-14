@@ -10,6 +10,11 @@ export default {
         redhat: ['"Red Hat Display"', 'sans-serif'],
          millik:  ['Millik', 'sans-serif'] ,
       },
+      fontSize: {
+        sm: '12px',
+        md: '16px',
+        lg: '20px',
+      },
       colors: {
         mecktest: '#1e40af', 
         neutral: '#FCFCFC',
