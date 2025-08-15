@@ -1,6 +1,7 @@
 import SectionTitle from "./components/section-title";
 import { Button } from "../../components/ui/button";
 import Cooking from "./assets/images/Cooking.png";
+import clsx from "clsx";
 
 const WhyGiddaa = () => {
   return (
@@ -38,16 +39,16 @@ const WhyGiddaa = () => {
 
       <div className="flex justify-center space-x-[20px]">
         <Block />
-        <Block />
-        <Block />
+        <Block className="hidden sm:flex"/>
+        <Block className="hidden xl:flex" />
       </div>
     </div>
   );
 };
 
-const Block = () => {
+const Block = ({className = ""}: {className?: string;}) => {
   return (
-    <div className="border-2 w-[345px] h-[205px] rounded-[16px] border-green p-[30px] flex flex-col justify-between">
+    <div className={clsx("border-2 w-[300px] 1g:w-[345px] h-[205px] rounded-[16px] border-green p-[30px] flex flex-col justify-between", className)}>
       <img src={Cooking} className="w-[40px] h-[40px] object-cover" />
       <h1 className="font-redhat font-semibold text-[18px] leading-[18px] text-black">
         Stay Fully Booked

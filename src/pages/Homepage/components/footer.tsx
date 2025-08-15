@@ -9,32 +9,32 @@ import Whatsapp from "../assets/images/Whatsapp.png";
 
 const Footer = () => {
   return (
-    <div className="border-t-[15px] bg-green h-[630px] border-grade  px-[150px] py-[59px]">
-      <div className="flex">
+    <div className="border-t-[15px] bg-green h-[1100px] md:h-[630px] border-grade px-[50px] sm:[50px] md:[70px] xl:px-[150px] py-[59px]">
+      <div className="md:flex space-y-3 ">
         <div className="space-y-3">
           <h1 className="font-redhat text-[18px] font-semibold leading-[18px] text-offWhite">
             Join Our Newsletter
           </h1>
-          <p className="font-redhat text-[12px] font-normal leading-[22px] text-offWhite">
+          <p className="font-redhat hidden md:flex text-[12px] font-normal leading-[22px] text-offWhite">
             Stay up to date with news and updates by subscribing to our
             newsletter
           </p>
         </div>
 
-        <div className="flex ml-[230px] space-x-[20px]">
+        <div className="flex md:ml-[230px] space-x-[10px]  md:space-x-[20px]">
           <FormInput
             placeholder={"Enter your email address"}
             name="mail"
             wrapperClassName=" "
-            className=" border pl-[17px] h-[45px] font-redhat font-normal text-deepGray text-[12px] leading-[22px] w-[333px]"
+            className=" border pl-[17px] h-[35px] md:h-[45px] font-redhat font-normal text-deepGray text-[12px] leading-[22px] w-[180px] md:w-[333px]"
           />
-          <Button className="flex items-center pl-[12px] h-[45px] font-bold w-[94px] font-redhat pr-4 rounded-full py-[6.5px] ml-[30px] text-[12px] text-green bg-offWhite border">
+          <Button className="flex items-center pl-[12px] h-[35px] md:h-[45px] font-bold w-[94px] font-redhat pr-4 rounded-full py-[6.5px] ml-[30px] text-[12px] text-green bg-offWhite border">
             Subscribe
           </Button>
         </div>
       </div>
 
-      <div className="flex space-x-[67px] my-[50px]">
+      <div className="md:flex md:space-x-[67px]  grid grid-cols-2  my-[50px]">
         <Listing title="ABOUT US" items={["Our Company", "Our Team"]} />
         <Listing title="PRODUCTS" items={["Buy ", "Short Lets", "Invest"]} />
         <Listing
@@ -115,8 +115,8 @@ const Listing: React.FC<{
   items: string[];
 }> = ({ title, items }) => {
   return (
-    <div className="  ">
-      <h2 className="text-[13px] font-bold text-offWhite font-redhat leading-[23px] mb-3">
+    <div className=" mb-9 ">
+      <h2 className="text-[13px] font-bold text-offWhite font-redhat leading-[23px] md:mb-3">
         {title}
       </h2>
       <ul className="flex flex-col gap-2">

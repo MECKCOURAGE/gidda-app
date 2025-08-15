@@ -43,7 +43,7 @@ const OurPartners = () => {
       </div>
 
       <div className="flex flex-wrap justify-center py-[20px]">
-        <Typography className="font-redhat font-semibold text-[40px] text-sWhite ">
+        <Typography className="font-redhat font-semibold sm:text-[40px] text-[25px] text-sWhite ">
           Over 50 Partners
         </Typography>
       </div>

@@ -20,7 +20,7 @@ const Products = () => {
             Get started with one of our carefully crafted products & services.
           </p>
 
-          <Container className="grid grid-cols-2 mt-[40px] ml-[82px] mr-[27px]">
+          <Container className="grid xl:grid-cols-2  mt-[40px] xl:ml-[82px] xl:mr-[27px] justify-center">
             <Block
               title="Buy"
               paragraph="Explore and purchase your home from top developers & vetted property sellers(With land titles) on various purchase plans and long term loan options."
@@ -30,7 +30,7 @@ const Products = () => {
             />
             <Block
               title="Shorts lets"
-              paragraph="Find yoru next gateaway spot, staycation, or business trip spot. Aviod extra changes, find detailed information, and reserve a shortlet."
+              paragraph="Find your next gateaway spot, staycation, or business trip spot. Aviod extra changes, find detailed information, and reserve a shortlet."
               imageSrc={Shortlets}
               primaryButton="Buy Now"
               className="bg-tWhite"
@@ -95,16 +95,16 @@ const Block = ({
         `flex ${
           hasSecondButton
             ? "grid grid-rows-2 border-b-[3px] border-t-[3px] border-r-[5px] "
-            : "grid grid-cols-2 border-b-[3px] border-t-[3px] border-r-[5px] h-[337px] "
-        } w-[585px]  items-center rounded-[40px] border-l border-green mb-[40px] `,
+            : "grid grid-cols-2 border-b-[3px] border-t-[3px] border-r-[5px]  "
+        } md:w-[585px] mx-12 md:mx-0  items-center rounded-[40px] border-l border-green mb-[40px] `,
         className
       )}
     >
-      <div className="p-8 ">
-        <h2 className="text-2xl font-extrabold leading-[24px] font-redhat text-green text-[24px]">
+      <div className="sm:p-8 p-4">
+        <h2 className="sm:text-2xl text-[18px] font-extrabold leading-[24px] font-redhat text-green ">
           {title}
         </h2>
-        <p className="mt-2 text-[15px]  text-black font-redhat leading-[24px]">
+        <p className="mt-2 text-[13px] sm:text-[15px]  text-black font-redhat leading-[24px]">
           {paragraph}
         </p>
 
@@ -112,15 +112,15 @@ const Block = ({
           <Button
             asChild
             size={"xLarge"}
-            className="border mt-4 h-[60px] bg-green font-redhat text-[12px] font-bold text-offWhite"
+            className="border mt-4 sm:h-[60px] h-[50px] bg-green font-redhat text-[11px] font-bold text-offWhite"
           >
-            <div className={"px-8 "}>
+            <div className={"sm:px-8 px-4"}>
               {primaryButton}{" "}
-              <span className="ml-2 inline-flex border size-5 items-center bg-offWhite justify-center rounded-full ">
+              <span className="ml-2 inline-flex border sm:size-5 size-4 items-center bg-offWhite justify-center rounded-full ">
                 <BsArrowRight
                   strokeWidth={1.5}
                   color="green"
-                  className="size-3 -rotate-45"
+                  className="sm:size-3 size-2 -rotate-45"
                 />
               </span>
             </div>
@@ -130,9 +130,9 @@ const Block = ({
             <Button
               asChild
               size={"xLarge"}
-              className="border-2 mt-4 h-[60px] bg-offWhite font-redhat text-[12px] font-bold text-green"
+              className="border-2 mt-4 sm:h-[60px] h-[50px] bg-offWhite font-redhat text-[11px] font-bold text-green"
             >
-              <div className={"px-10 border-green "}>{secondaryButton}</div>
+              <div className={"sm:px-8 px-4 border-green "}>{secondaryButton}</div>
             </Button>
           )}
         </div>
@@ -146,7 +146,7 @@ const Block = ({
         <img
           src={imageSrc}
           alt={title}
-          className="w-full h-full object-cover "
+          className="w-full h-full "
         />
       </div>
     </div>

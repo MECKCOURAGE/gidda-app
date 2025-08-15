@@ -15,7 +15,7 @@ const KnowMore = () => {
         </p>
       </div>
 
-      <div className=" mx-auto w-[1140px] h-[500px] my-[30px] ">
+      <div className=" mx-auto xl:w-[1240px] md:w-[800px] sm:w-[550px] w-[300px] h-[350px] sm:h-[500px] my-[30px] ">
         <VideoFrame
           placeholder={Zoomed}
           iframeSrc="https://www.youtube.com/embed/dQw4w9WgXcQ"

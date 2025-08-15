@@ -20,7 +20,7 @@ const GetStarted = () => {
             our products today!.
           </p>
 
-          <Container className="grid grid-cols-3 mt-[40px]  ml-[167px] mr-[143px] ">
+          <Container className="grid xl:grid-cols-3 mt-[40px] ml-[20px] justify-center xl:ml-[167px] xl:mr-[143px] ">
             <Block
               title="Buy"
               paragraph="Find homes on various purchase plans; apply to buy them with your account executive."
@@ -72,15 +72,15 @@ const Block = ({
   return (
     <div
       className={clsx(
-        ` border-2 w-[325px] h-fit rounded-[16px] border-green p-[20px] flex flex-col space-y-4 mb-[30px] `,
+        ` border-2 xl:w-[325px] w-[300px] h-fit rounded-[16px] border-green p-[13px] xl:p-[20px] flex flex-col space-y-3 xl:space-y-4 mb-[30px] `,
         className
       )}
     >
       <img src={imageSrc} className="w-[30px] h-[24px] " />
-      <h1 className="font-redhat font-semibold text-[24px] leading-[24px] text-black">
+      <h1 className="font-redhat font-semibold text-[20px] xl:text-[24px] leading-[24px] text-black">
         {title}
       </h1>
-      <p className="font-redhat font-normal text-[16px] leading-[26px]">
+      <p className="font-redhat font-normal text-[14px] xl:text-[16px] leading-[26px]">
         {paragraph}
       </p>
 

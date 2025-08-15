@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom"
-
+import "./App.css";
 
 function App() {
 
 
+
   return (
     <>
-      <div>
-       <Link to= "/home">To go to homepage</Link>
+      <div className="font-millik justify-center text-[40px]">
+        This is the DashBoard Page
       </div>
-      
     </>
-  )
+  );
 }
 
-export default App
+export default App;

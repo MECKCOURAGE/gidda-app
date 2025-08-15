@@ -46,7 +46,7 @@ export const FieldErrorText = ({
   error: string;
   className?: string;
 }) => (
-  <p className={cn("text-xs font-normal text-danger", className)}>{error}</p>
+  <p className={cn("text-xs ml-4 text-red-700 font-normal ", className)}>{error}</p>
 );
 
 export const FieldHelperText = ({

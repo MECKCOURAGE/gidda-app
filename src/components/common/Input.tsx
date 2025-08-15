@@ -75,9 +75,9 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
 
     return (
       <div className={cn("", wrapperClassName)}>
-        <label className="flex flex-col">
+        <label className={clsx("flex flex-col")}>
           {label && (
-            <div className="label-container">
+            <div className={clsx("label-container font-redhat ml-4 text-green ")}>
               <FieldLabelText label={label} required={rest.required} />
             </div>
           )}
