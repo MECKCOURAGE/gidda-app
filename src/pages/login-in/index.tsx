@@ -9,7 +9,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import loginIm from "../../assets/images/loginIm.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { PageRoutes } from "../../constants/routes";
 
 const Login = () => {
     const [errorMessage ,setErrorMessage] = useState("");
