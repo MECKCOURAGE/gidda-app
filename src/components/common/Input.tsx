@@ -47,6 +47,7 @@ type FormInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   boldHint?: string;
   height?: string;
   searchIconSize?: number;
+  iconColor?: string;
   wrapperClassName?: string;
   isLoadingField?: boolean;
   leftIcon?: React.ReactNode;
@@ -67,6 +68,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
       wrapperClassName,
       searchIconSize,
       isLoadingField,
+      iconColor,
       ...rest
     },
     ref
@@ -107,7 +109,7 @@ const FormInput = React.forwardRef<HTMLInputElement, FormInputProps>(
                   })}
                   role="icon"
                 >
-                  <BiSearch size={searchIconSize} color="inherit" />
+                  <BiSearch size={searchIconSize} color={iconColor ? iconColor : "inherit"} />
                 </span>
               )}
 

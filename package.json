@@ -48,6 +48,7 @@
     "jspdf-autotable": "^5.0.2",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.1",
+    "lucide-react": "^0.539.0",
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-circular-progressbar": "^2.2.0",

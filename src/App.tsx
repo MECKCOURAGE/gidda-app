@@ -1,4 +1,4 @@
-import "./App.css";
+import MainLayout from "./components/main-layout";
 
 function App() {
 
@@ -6,9 +6,7 @@ function App() {
 
   return (
     <>
-      <div className="font-millik justify-center text-[40px]">
-        This is the DashBoard Page
-      </div>
+      <MainLayout/>
     </>
   );
 }
