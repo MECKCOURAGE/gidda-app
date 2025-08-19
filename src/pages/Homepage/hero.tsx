@@ -1,7 +1,7 @@
+import { useState, useEffect } from "react";
 import Container from "../../components/container";
 import { Button } from "../../components/ui/button";
-import { BsArrowRight } from "react-icons/bs";
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowRight, BsX } from "react-icons/bs";
 import Typography from "../../components/common/typography";
 import WavingHand from "./assets/images/WavingHand.png";
 import interiorA from "./assets/images/interiorA.png";
@@ -9,57 +9,65 @@ import interiorB from "./assets/images/interiorB.png";
 import interiorC from "./assets/images/interiorC.png";
 
 const Hero = () => {
+  const [showAside, setShowAside] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowAside(true), 1200); // 1.2s delay
+    return () => clearTimeout(timer);
+  }, []);
   return (
-    <Container as={"header"} className="mb-[100px]">
+    <Container as={"header"} className="mb-[100px] relative">
       <div className="flex flex-col items-center xl:mr-[60px] mt-[30px] gap-4 pt-6 relative">
-        {/* Welcome Card */}
-        <aside
-          className="absolute top-0 right-0 hidden xl:flex p-[2px] rounded-2xl 
-        bg-[linear-gradient(to_left,_#335F32_10%,_#3F6E31_30%,_#EAA315_100%)]
-        w-[290px] h-[100px]"
-        >
-          <div className="flex bg-neutral rounded-2xl p-[9px] w-full h-full">
-            <img src={WavingHand} alt="hello" className="w-[44px] h-[44px]" />
-
-            <div className="ml-[7px] mt-[5px]">
-              <Typography className="font-redhat font-extrabold text-[16px] text-green">
-                You're Now on Giddaa <span className="font-normal">Buy</span>
-              </Typography>
-              <Typography className="font-redhat text-[13px] text-black">
-                Find and buy your dream home on various purchase plans.
-              </Typography>
-            </div>
-          </div>
-        </aside>
-
-        {/* Centered content */}
-        <div className="flex flex-col justify-center items-center text-center xl:ml-[50px]">
-          {/* Pill */}
-          <h1
-            className="flex space-x-2 font-bold font-redhat text-green 
-             items-center px-[20px] my-[13px] py-2 md:w-[1000] h-[48px] rounded-full
-             border border-[#8f8787] 
-             bg-[linear-gradient(to_right,#FFFFFB,#F6FDF4,#FFEDCB)]"
+        {showAside && (
+          <aside
+            className={`
+            absolute top-0 right-0 hidden xl:flex p-[2px] rounded-2xl
+            bg-[linear-gradient(to_left,#335F32_10%,#3F6E31_30%,#EAA315_100%)]
+            w-[290px] h-[100px]
+            transform transition-transform duration-500 ease-out
+            ${showAside ? "translate-x-0" : "translate-x-full"}
+          `}
           >
+            <div className="flex bg-neutral rounded-2xl p-[9px] w-full h-full relative">
+              <img src={WavingHand} alt="hello" className="w-[44px] h-[44px]" />
+
+              <div className="ml-[7px] mt-[5px]">
+                <Typography className="font-redhat font-extrabold text-[16px] text-green">
+                  You're Now on Giddaa <span className="font-normal">Buy</span>
+                </Typography>
+                <Typography className="font-redhat text-[13px] text-black">
+                  Find and buy your dream home on various purchase plans.
+                </Typography>
+              </div>
+
+              <button
+                onClick={() => setShowAside(false)}
+                className="absolute top-2 right-2 text-black hover:text-red-500"
+              >
+                <BsX size={18} />
+              </button>
+            </div>
+          </aside>
+        )}
+
+        <div className="flex flex-col justify-center items-center text-center xl:ml-[50px]">
+          <h1 className="flex space-x-2 font-bold font-redhat text-green items-center px-[20px] my-[13px] py-2 md:w-[1000] h-[48px] rounded-full border border-[#8f8787] bg-[linear-gradient(to_right,#FFFFFB,#F6FDF4,#FFEDCB)]">
             <Typography className="md:flex items-center hidden text-[10px] border-r pr-2 uppercase font-redhat h-7">
               We Serve Nigerians Across the Globe
             </Typography>
-
             <Typography className="text-[10px]">
               👀 10,000 PEOPLE HAVE SEEN THIS
             </Typography>
           </h1>
 
-          {/*Heading*/}
-          <h1 className="font-millik text-[42px] md:text-[48px] font-normal leading-[68px] tracking-[-1.2px] md:w-[700px] mx-[40px] ">
+          <h1 className="font-millik text-[42px] md:text-[48px] font-normal leading-[68px] tracking-[-1.2px] md:w-[700px] mx-[40px]">
             Find a Home to Buy In Nigeria On Various{" "}
             <span className="text-green"> Purchase Plans. </span>
           </h1>
 
-          {/* Paragraph */}
-          <p className=" font-redhat md:text-[16px] text-[13px] md:w-[750px] leading-[38px] mx-[40px]">
+          <p className="font-redhat md:text-[16px] text-[13px] md:w-[750px] leading-[38px] mx-[40px]">
             We have taken real estate beyond{" "}
-            <span className="border-b-2  border-green">mere listings</span>.
+            <span className="border-b-2 border-green">mere listings</span>.
             Conduct secure real estate transactions on our platform trusted by
             more than{" "}
             <span className="text-black font-bold">
@@ -67,7 +75,6 @@ const Hero = () => {
             </span>
           </p>
 
-          {/* Button */}
           <Button
             asChild
             size={"xLarge"}
@@ -87,9 +94,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div>
-        <BlockOfImages />
-      </div>
+      <BlockOfImages />
     </Container>
   );
 };
@@ -98,25 +103,11 @@ export default Hero;
 
 const BlockOfImages = () => {
   return (
-    <div className="flex mx-[60px]  my-9 relative">
+    <div className="flex mx-[60px] my-9 relative">
       <div className="grid grid-cols-[2fr_2fr_1.17fr] gap-2">
         <img src={interiorA} className="w-full h-auto object-cover" />
         <img src={interiorB} className="w-full h-auto object-cover" />
         <img src={interiorC} className="w-full h-auto object-cover" />
-      </div>
-
-      <div
-        className=" hidden xl:flex w-[40px] h-[40px] rounded-full rotate-90 p-[2px] items-center justify-center absolute right-0 bottom-[20px]
-    bg-[linear-gradient(to_bottom,_#335F32_10%,_#3F6E31_40%,_#EAA315_100%)] border-[1px] border-neutral
-            "
-      >
-        <div className="flex bg-offWhite  p-[9px] w-full h-full items-center justify-center rounded-full  ">
-          <BsArrowLeft
-            strokeWidth={0.5}
-            color="green"
-            className="w-[20px] h-[20px]"
-          />
-        </div>
       </div>
     </div>
   );
