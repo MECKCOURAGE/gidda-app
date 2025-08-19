@@ -32,6 +32,15 @@ const EstateView = () => {
     <div>
       <NavBar name={estate?.name ?? "Estate"} />
 
+      {isLoading && (
+        <div className="font-redhat text-[27px] ml-[30px] font-extrabold text-green">
+          LOADING...
+        </div>
+      )}
+      {error && (
+        <div>{error}</div>
+      )}
+
       {estate && <Tabs estate={estate} />}
     </div>
   );

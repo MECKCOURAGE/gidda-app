@@ -1,4 +1,5 @@
 import type { SVGProps } from "react";
+import type { ReactNode } from "react";
 
 const Icons = ({ fill, iconName, ...rest }: SVGProps<SVGSVGElement> & { iconName: string }) => {
   const icon = greenIcons[iconName] || greenIcons["ac"];
@@ -24,7 +25,7 @@ const greenIcons: {
     name: string;
     height?: number;
     width?: number;
-    Icon: (fill?: string) => JSX.Element;
+    Icon: (fill?: string) => ReactNode;
     extraProps?: { [key: string]: unknown };
   };
 } = {

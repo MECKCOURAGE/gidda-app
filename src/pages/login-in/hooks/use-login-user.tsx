@@ -20,13 +20,6 @@ const useLoginUser = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-
-  const logout = () => {
-    setAuthUser(null); 
-    sessionStorage.removeItem("user"); 
-    navigate("/login", { replace: true });
-  };
-
   const handleSuccessfulLogin = (response: LoginResponse) => {
     const { value } = response;
 

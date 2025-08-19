@@ -18,11 +18,7 @@ const Estates = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(4);
   const [search, setSearch] = useState("");
-
-  const isLastPage = estates.length < pageSize;
-
 
   const fetchEstates = async () => {
     setIsLoading(true);
@@ -30,7 +26,7 @@ const Estates = () => {
       const data = await getRequest("/developer/estate/get-all", {
         params: {
           pageNumber,
-          pageSize,
+          pageSize: 4,
           search,
         },
       });
@@ -44,7 +40,7 @@ const Estates = () => {
 
   useEffect(() => {
     fetchEstates();
-  }, [pageNumber, pageSize, search]);
+  }, [pageNumber, search]);
 
   const { totalHouses, totalUnits, estateCount } = useMemo(() => {
     let houses = 0;
@@ -90,7 +86,14 @@ const Estates = () => {
         </NavLink>
       </div>
 
-      {isLoading && <div className="font-redhat text-[27px] ml-[30px] font-extrabold text-green">LOADING...</div>}
+      {isLoading && (
+        <div className="font-redhat text-[27px] ml-[30px] font-extrabold text-green">
+          LOADING...
+        </div>
+      )}
+      {error && (
+        <div>{error}</div>
+      )}
 
       {!isLoading && (
         <div className="mx-auto">
@@ -100,18 +103,16 @@ const Estates = () => {
             ))}
           </Container>
           <div className="flex space-x-2  mt-[20px] ml-[539px]">
-            <Button 
-            onClick={() => setPageNumber((prevState) => prevState - 1)}
-            className="p-[1px] bg-lightGray rounded-sm">
+            <Button
+              onClick={() => setPageNumber((prevState) => prevState - 1)}
+              className="p-[1px] bg-lightGray rounded-sm"
+            >
               <BiCaretLeft color="#979797" size={19} />
             </Button>
 
             <Button
               onClick={() => setPageNumber((prevState) => prevState + 1)}
-              disabled ={isLastPage}
-              className={`p-[1px] ${isLastPage ? "bg-lightGray" : 
-                "bg-green"
-              } rounded-sm`}
+              className={`p-[1px] bg-green rounded-sm`}
             >
               <BiCaretRight color="#FFFFFF" size={19} />
             </Button>
@@ -126,7 +127,8 @@ export default Estates;
 
 const EstateBlock = ({ estate }: { estate: Estate }) => {
   const [showMenu, setShowMenu] = useState(false);
-  const imageUrl = estate.images?.length > 0 ? estate.images[0].document : "/no-image.jpg";
+  const imageUrl =
+    estate.images?.length > 0 ? estate.images[0].document : "/no-image.jpg";
 
   return (
     <div className="relative">
